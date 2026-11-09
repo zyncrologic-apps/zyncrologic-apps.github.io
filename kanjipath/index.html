@@ -8,7 +8,8 @@
   <link rel="canonical" href="https://zyncrologic-apps.github.io/kanjipath/">
   <link rel="icon" type="image/png" href="img/icon-192.png">
   <link rel="apple-touch-icon" href="img/icon-192.png">
-  <meta name="theme-color" content="#3d45e0">
+  <meta name="theme-color" content="#f2f3f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0e13" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="website">
   <meta property="og:title" content="KanjiPath: JLPT Kanji Study">
   <meta property="og:description" content="From kana to JLPT N1, stroke by stroke. Offline Android app with handwriting practice and reviews.">
@@ -17,7 +18,8 @@
   <meta property="og:image:width" content="1024">
   <meta property="og:image:height" content="500">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="preload" href="fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="kanjipath.css">
   <script type="application/ld+json">
   {
@@ -37,84 +39,92 @@
   </script>
 </head>
 <body>
-<main class="kp">
+<main>
+  <header class="top"><img src="img/icon-192.png" alt="" width="44" height="44"><span>KanjiPath</span></header>
+
   <section class="hero">
     <div>
-      <div class="brand"><img src="img/icon-192.png" alt="" width="56" height="56"><span>KanjiPath</span></div>
       <h1>Learn kanji for the JLPT, <em>stroke by stroke</em>.</h1>
-      <p class="lead">An Android app that takes you from kana to JLPT N1: meanings, readings and real example
-        sentences, stroke-order animation, handwriting practice with feedback on every stroke, and reviews that bring
-        each kanji back just before you would forget it.</p>
-      <ul class="pills">
-        <li>Works offline</li>
-        <li>No ads</li>
-        <li>No account</li>
-        <li>Kana, radicals and all N5 kanji free</li>
+      <p class="lead">An Android app that takes you from kana to JLPT N1: meanings, readings and real example sentences,
+        stroke-order animation, handwriting practice with feedback on every stroke, and reviews that bring each kanji back
+        just before you would forget it.</p>
+      <ul class="tags">
+        <li class="tag">Works offline</li>
+        <li class="tag">No ads</li>
+        <li class="tag">No account</li>
+        <li class="tag jade">Kana, radicals and all N5 kanji free</li>
       </ul>
-      <a class="badge" href="https://play.google.com/store/apps/details?id=com.zyncrologic.kanjipath&amp;utm_source=website&amp;utm_campaign=landing">
-        <img src="img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
-      </a>
+      <a class="badge" href="https://play.google.com/store/apps/details?id=com.zyncrologic.kanjipath&amp;utm_source=website&amp;utm_campaign=landing"><img src="img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
     </div>
     <div class="phone"><img src="img/05-kanji-dark.jpg" alt="The kanji page for 日 in KanjiPath, in dark mode" width="540" height="1080"></div>
   </section>
 
-  <div class="shots" aria-label="Screenshots">
+  <section class="section" aria-label="Screenshots">
+    <div class="shots">
     <figure><img src="img/01-home.jpg" alt="Home: reviews due, today's goal, the streak and the next five kanji" width="540" height="1080" loading="lazy"><figcaption>Your day at a glance</figcaption></figure>
     <figure><img src="img/08-review.jpg" alt="A review flashcard for 日 with its readings, an example word, and when it comes back for each answer" width="540" height="1080" loading="lazy"><figcaption>Reviews at the right time</figcaption></figure>
     <figure><img src="img/06-words-dark.jpg" alt="Words that use 日, grouped under each reading, with furigana, JLPT level and audio" width="540" height="1080" loading="lazy"><figcaption>Words for every reading</figcaption></figure>
     <figure><img src="img/02-compact.jpg" alt="JLPT N5 kanji as compact cards with meanings and readings" width="540" height="1080" loading="lazy"><figcaption>All of N5 to N1, level by level</figcaption></figure>
-  </div>
-
-  <h2>What you get</h2>
-  <div class="features">
-    <div class="feature"><h3>Learn each kanji properly</h3><p>Meanings, on and kun readings, example words grouped under the reading they use, what each kanji is made of, look-alike kanji, and real sentences with furigana. Hear readings, words and sentences in Japanese.</p></div>
-    <div class="feature"><h3>Write it yourself</h3><p>Watch the stroke order, then write with your finger or a stylus. Every stroke is checked for direction, order and position, so you learn to write <span class="jp">日</span> the way it is really written.</p></div>
-    <div class="feature"><h3>Remember it</h3><p>Spaced-repetition reviews with flashcards, typed answers and multiple choice. Leeches and look-alike warnings help with the kanji you keep missing.</p></div>
-    <div class="feature"><h3>Prepare for the JLPT</h3><p>Study by level, N5 to N1, and take timed kanji mock tests with a score for each section.</p></div>
-    <div class="feature"><h3>Find any kanji</h3><p>Search by meaning, reading (kana or romaji) or the kanji itself. Filter by level, stroke count and parts, or draw it.</p></div>
-    <div class="feature"><h3>Private and offline</h3><p>Your progress stays on your phone. No account, no ads, no tracking. Back it up to a file whenever you like.</p></div>
-  </div>
-
-  <h2>Free, and one payment for the rest</h2>
-  <div class="tiers">
-    <div class="tier">
-      <h3>Free forever</h3>
-      <p class="note">No time limit, no account.</p>
-      <ul>
-        <li>Hiragana, katakana and the 214 radicals</li>
-        <li>All JLPT N5 kanji, with their words, sentences and audio</li>
-        <li>Lessons, reviews and handwriting practice</li>
-      </ul>
     </div>
-    <div class="tier full">
-      <h3>KanjiPath Full</h3>
-      <p class="note">One payment in Google Play. No subscription.</p>
-      <ul>
-        <li>N4 to N1: more than 2,000 more kanji</li>
-        <li>Custom sets of your own kanji</li>
-        <li>Write a whole kanji from memory and have it recognised</li>
-        <li>Full mock tests</li>
-      </ul>
+  </section>
+
+  <section class="section">
+    <h2>What you get</h2>
+    <div class="grid">
+      <div class="card feature"><div class="icon-tile lapis"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/></svg></div><div><h3>Learn each kanji properly</h3><p>Meanings, on and kun readings, example words grouped under the reading they use, what each kanji is made of, look-alike kanji, and real sentences with furigana. Hear readings, words and sentences in Japanese.</p></div></div>
+      <div class="card feature"><div class="icon-tile jade"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.6L15.6 5a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8zM14 6.6l3.4 3.4"/></svg></div><div><h3>Write it yourself</h3><p>Watch the stroke order, then write with your finger or a stylus. Every stroke is checked for direction, order and position, so you learn to write <span class="jp" lang="ja">日</span> the way it is really written.</p></div></div>
+      <div class="card feature"><div class="icon-tile amethyst"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h9a2 2 0 0 1 2 2v11M6.5 7h7a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg></div><div><h3>Remember it</h3><p>Spaced-repetition reviews with flashcards, typed answers and multiple choice. Leeches and look-alike warnings help with the kanji you keep missing.</p></div></div>
+      <div class="card feature"><div class="icon-tile amber"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM12 11v3l2 1.5M9.5 3.5h5M12 3.5v4M18 7l1.5-1.5"/></svg></div><div><h3>Prepare for the JLPT</h3><p>Study by level, N5 to N1, and take timed kanji mock tests with a score for each section.</p></div></div>
+      <div class="card feature"><div class="icon-tile rose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM15.5 15.5 20 20"/></svg></div><div><h3>Find any kanji</h3><p>Search by meaning, reading (kana or romaji) or the kanji itself. Filter by level, stroke count and parts, or draw it.</p></div></div>
+      <div class="card feature"><div class="icon-tile gold"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 5 6v5.5c0 4.5 3 7.7 7 9 4-1.3 7-4.5 7-9V6z"/></svg></div><div><h3>Private and offline</h3><p>Your progress stays on your phone. No account, no ads, no tracking. Back it up to a file whenever you like.</p></div></div>
     </div>
-  </div>
+  </section>
 
-  <h2>Questions</h2>
-  <details><summary>Is KanjiPath free?</summary><p>Yes. Kana, radicals and every JLPT N5 kanji are free for good, with lessons, reviews and writing practice. KanjiPath Full unlocks N4 to N1 and a few extra tools with a single in-app purchase; the price is shown in Google Play.</p></details>
-  <details><summary>Does it work without the internet?</summary><p>Yes. Everything you study is inside the app. You only need a connection to buy KanjiPath Full and, once, to download the handwriting-recognition model that Full's free-draw mode uses.</p></details>
-  <details><summary>What language is the app in?</summary><p>English. Japanese is shown in Japanese script with furigana (kana over the kanji), and you can search by reading in kana or romaji.</p></details>
-  <details><summary>Which phones does it run on?</summary><p>Phones with Android 7.0 or newer.</p></details>
-  <details><summary>Do I need an account? Where is my progress kept?</summary><p>No account. Your progress stays on your phone, and you can back it up to a file and restore it on another phone. A KanjiPath Full purchase comes back automatically on any phone with your Google account.</p></details>
+  <section class="section">
+    <h2>Free, and one payment for the rest</h2>
+    <div class="tiers">
+      <div class="card tier">
+        <div class="tier-head"><h3>Free forever</h3><span class="tag jade">No time limit</span></div>
+        <p class="note">No account, no ads.</p>
+        <ul>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Hiragana, katakana and the 214 radicals</span></li>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>All JLPT N5 kanji, with their words, sentences and audio</span></li>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Lessons, reviews and handwriting practice</span></li>
+        </ul>
+      </div>
+      <div class="card tier full">
+        <div class="tier-head"><h3>KanjiPath Full</h3><span class="tag ai">One payment</span></div>
+        <p class="note">Bought in Google Play. No subscription.</p>
+        <ul>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>N4 to N1: more than 2,000 more kanji</span></li>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Custom sets of your own kanji</span></li>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Write a whole kanji from memory and have it recognised</span></li>
+          <li><span class="check"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Full mock tests</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <div class="cta">
+  <section class="section">
+    <h2>Questions</h2>
+    <div class="card options">
+      <details><summary>Is KanjiPath free?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></summary><p>Yes. Kana, radicals and every JLPT N5 kanji are free for good, with lessons, reviews and writing practice. KanjiPath Full unlocks N4 to N1 and a few extra tools with a single in-app purchase; the price is shown in Google Play.</p></details>
+      <details><summary>Does it work without the internet?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></summary><p>Yes. Everything you study is inside the app. You only need a connection to buy KanjiPath Full and, once, to download the handwriting-recognition model that Full's free-draw mode uses.</p></details>
+      <details><summary>What language is the app in?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></summary><p>English. Japanese is shown in Japanese script with furigana (kana over the kanji), and you can search by reading in kana or romaji.</p></details>
+      <details><summary>Which phones does it run on?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></summary><p>Phones with Android 7.0 or newer.</p></details>
+      <details><summary>Do I need an account? Where is my progress kept?<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></summary><p>No account. Your progress stays on your phone, and you can back it up to a file and restore it on another phone. A KanjiPath Full purchase comes back automatically on any phone with your Google account.</p></details>
+    </div>
+  </section>
+
+  <section class="section cta">
     <h2>Start with your first kanji today</h2>
-    <a class="badge" href="https://play.google.com/store/apps/details?id=com.zyncrologic.kanjipath&amp;utm_source=website&amp;utm_campaign=landing">
-      <img src="img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250">
-    </a>
-  </div>
+    <p>Free on Google Play for Android 7.0 and newer.</p>
+    <a class="badge" href="https://play.google.com/store/apps/details?id=com.zyncrologic.kanjipath&amp;utm_source=website&amp;utm_campaign=landing"><img src="img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
+  </section>
 
   <footer>
     <p><a href="privacy/">Privacy policy</a> · Contact: <a href="mailto:zyncrologic@gmail.com">zyncrologic@gmail.com</a> · <a href="../">More apps by Zyncrologic</a></p>
-    <p class="credits">Kanji data: KANJIDIC2, JMdict and KRADFILE by the Electronic Dictionary Research and Development Group (CC BY-SA 4.0); stroke data from KanjiVG by Ulrich Apel (CC BY-SA 3.0); example sentences from Tatoeba (CC BY 2.0 FR); pitch accent from UniDic (NINJAL). Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    <p>Kanji data: KANJIDIC2, JMdict and KRADFILE by the Electronic Dictionary Research and Development Group (CC BY-SA 4.0); stroke data from KanjiVG by Ulrich Apel (CC BY-SA 3.0); example sentences from Tatoeba (CC BY 2.0 FR); pitch accent from UniDic (NINJAL). Fonts: Bricolage Grotesque, Figtree and Shippori Mincho (SIL Open Font License). Google Play and the Google Play logo are trademarks of Google LLC.</p>
   </footer>
 </main>
 </body>

@@ -1,120 +1,228 @@
-/* KanjiPath page: the app's "Ai & Sumi" colours on top of the shared style.css. */
+/*
+ * KanjiPath's page, in the app's "Ai & Sumi" design system (kanji-app/docs/DESIGN.md): the same colour roles, the
+ * bundled faces (Bricolage Grotesque for headings and numbers, Figtree for text, Shippori Mincho for Japanese), the
+ * corner scale (tag 8 · tile 16 · card 24 · hero 32), flat white cards on the grey ground, one raised element (the
+ * hero phone), no gradients and no shadows in lists. Fonts are self-hosted (SIL OFL, see fonts/LICENSE.txt).
+ */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("fonts/bricolage-grotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("fonts/figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shippori Mincho";
+  src: url("fonts/shippori-mincho-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
+  color-scheme: light dark;
+  /* Colour roles (DESIGN.md §2) */
   --ai: #3d45e0;
-  --ai-soft: #e1e3ff;
-  --kaki: #bc4711;
+  --ai-container: #e1e3ff;
+  --ai-soft: #eeefff;
+  --ink: #13151b;
+  --ink2: #464b57;
+  --ink3: #5f6574;
   --ground: #f2f3f6;
   --card: #ffffff;
-  --text: #13151b;
-  --accent: #3d45e0;
+  --surface2: #eceef2;
+  --hairline: #e0e3e9;
+  --kaki: #bc4711;
+  --success: #16794b;
+  --success-container: #d3f2e2;
+  --on-success-container: #0a4a2d;
+  /* Stat tones: container / content */
+  --lapis-c: #e3e6ff; --lapis: #1e2a8c;
+  --jade-c: #d7f1e6; --jade: #0b5038;
+  --amethyst-c: #efe1f9; --amethyst: #55217a;
+  --amber-c: #ffe8cc; --amber: #663800;
+  --rose-c: #ffe0e6; --rose: #84173a;
+  --gold-c: #f2e9c2; --gold: #574300;
+  /* Shape and space (DESIGN.md §4) */
+  --r-tag: 8px;
+  --r-tile: 16px;
+  --r-card: 24px;
+  --r-hero: 32px;
+  --gutter: 20px;
+  --section: 56px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --ai: #a8adff;
-    --ai-soft: #2b307e;
-    --kaki: #ff9c6b;
+    --ai-container: #2b307e;
+    --ai-soft: #1a1d40;
+    --ink: #edeff4;
+    --ink2: #b3b8c5;
+    --ink3: #959bab;
     --ground: #0c0e13;
-    --card: #171a21;
-    --text: #edeff4;
-    --accent: #a8adff;
+    --card: #161920;
+    --surface2: #1c1f28;
+    --hairline: #272b36;
+    --kaki: #ff9c6b;
+    --success: #62d59d;
+    --success-container: #0f3b28;
+    --on-success-container: #bdf3d7;
+    --lapis-c: #232a5e; --lapis: #c7cbff;
+    --jade-c: #123b2c; --jade: #9ce8c6;
+    --amethyst-c: #33204a; --amethyst: #e2c3f7;
+    --amber-c: #3f2a0d; --amber: #ffd39c;
+    --rose-c: #46172a; --rose: #ffb8c9;
+    --gold-c: #38300f; --gold: #edd98a;
   }
 }
 
-body { background: var(--ground); }
+* { box-sizing: border-box; }
 
-main.kp { max-width: 960px; padding-top: 32px; }
+html { -webkit-text-size-adjust: 100%; }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: center;
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16px/24px "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-.brand { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.brand img { width: 56px; height: 56px; border-radius: 14px; }
-.brand span { font-weight: 700; font-size: 1.3rem; }
-.hero h1 { font-size: clamp(2rem, 6vw, 2.9rem); letter-spacing: -0.02em; margin: 0 0 14px; }
+
+a { color: var(--ai); text-underline-offset: 3px; }
+
+.jp { font-family: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; font-weight: 700; }
+
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px var(--gutter) 48px;
+}
+
+/* Type scale (DESIGN.md §2): display / headline in Bricolage, the rest in Figtree */
+h1, h2, h3 { font-family: "Bricolage Grotesque", "Figtree", sans-serif; font-optical-sizing: auto; margin: 0; }
+h1 { font-weight: 800; font-size: 40px; line-height: 44px; letter-spacing: -0.01em; }
+h2 { font-weight: 700; font-size: 24px; line-height: 30px; }
+h3 { font-weight: 700; font-size: 16px; line-height: 22px; }
+
+.section { margin-top: var(--section); }
+.section > h2 { margin-bottom: 16px; }
+
+/* Header: the seal and the name */
+.top { display: flex; align-items: center; gap: 12px; }
+.top img { width: 44px; height: 44px; border-radius: 14px; display: block; }
+.top span { font: 700 20px/26px "Bricolage Grotesque", sans-serif; }
+
+/* Hero */
+.hero { display: grid; gap: 32px; margin-top: 32px; align-items: center; }
 .hero h1 em { font-style: normal; color: var(--ai); }
-.lead { font-size: 1.1rem; color: var(--muted); margin: 0 0 20px; max-width: 34em; }
+.lead { color: var(--ink2); margin: 16px 0 20px; max-width: 34em; }
 
-.pills { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0 0 24px; list-style: none; }
-.pills li {
-  background: var(--ai-soft);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 4px 14px;
-  font-size: 0.92rem;
+/* Tags (8 px corners, Figtree Bold) */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 28px; padding: 4px 10px;
+  border-radius: var(--r-tag);
+  background: var(--surface2); color: var(--ink2);
+  font: 700 12.5px/16px "Figtree", sans-serif;
+}
+.tag.jade { background: var(--success-container); color: var(--on-success-container); }
+.tag.ai { background: var(--ai-container); color: var(--ai); }
+.tag svg { width: 16px; height: 16px; }
+
+/* Google's badge (unchanged artwork, as their brand rules ask) */
+.badge { display: inline-block; border-radius: 12px; }
+.badge img { display: block; width: 200px; height: auto; margin: -12px; }
+
+/* The hero phone: the page's one raised element */
+.phone { justify-self: center; }
+.phone img {
+  display: block; width: 260px; max-width: 72vw; height: auto;
+  border-radius: var(--r-hero);
+  box-shadow: 0 12px 32px rgba(19, 21, 27, 0.16);
 }
 
-.badge img { width: 220px; height: auto; display: block; margin-left: -12px; }
-
+/* Screenshots: flat, a hairline, card corners */
 .shots {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 8px 2px 20px;
-  margin: 8px 0 0;
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin: 0 calc(-1 * var(--gutter)); padding: 4px var(--gutter) 8px;
 }
 .shots figure { margin: 0; flex: 0 0 auto; width: 220px; scroll-snap-align: start; }
-.shots img {
-  width: 100%;
-  height: auto;
-  border-radius: 22px;
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 28px rgba(20, 24, 60, 0.14);
-  display: block;
-}
-.shots figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 10px; text-align: center; }
+.shots img { display: block; width: 100%; height: auto; border-radius: var(--r-card); border: 1px solid var(--hairline); }
+.shots figcaption { margin-top: 10px; text-align: center; color: var(--ink3); font: 600 12.5px/16px "Figtree", sans-serif; }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 12px 0 0;
+/* Feature cards: a toned 52 px icon tile, a title and its line (the More rows' pattern) */
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.card { background: var(--card); border-radius: var(--r-card); padding: 18px; }
+.feature { display: flex; gap: 16px; align-items: flex-start; }
+.feature p { margin: 4px 0 0; color: var(--ink2); font-size: 14px; line-height: 20px; }
+.icon-tile {
+  flex: 0 0 52px; width: 52px; height: 52px; border-radius: 17px;
+  display: grid; place-items: center;
 }
-.feature {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px 20px;
+.icon-tile svg, .options svg, .check svg { width: 24px; height: 24px; }
+svg.i { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lapis { background: var(--lapis-c); color: var(--lapis); }
+.jade { background: var(--jade-c); color: var(--jade); }
+.amethyst { background: var(--amethyst-c); color: var(--amethyst); }
+.amber { background: var(--amber-c); color: var(--amber); }
+.rose { background: var(--rose-c); color: var(--rose); }
+.gold { background: var(--gold-c); color: var(--gold); }
+.feature .jp { color: var(--kaki); }
+
+/* Free and Full: a flat card and a tinted one */
+.tiers { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.tier { padding: 22px; }
+.tier.full { background: var(--ai-soft); }
+.tier-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tier .note { margin: 6px 0 12px; color: var(--ink2); font-size: 14px; line-height: 20px; }
+.tier ul { list-style: none; margin: 0; padding: 0; }
+.tier li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
+.check { flex: 0 0 24px; color: var(--success); }
+.full .check { color: var(--ai); }
+
+/* Questions: an options card with hairlines between rows */
+.options { padding: 0 18px; }
+.options details + details { border-top: 1px solid var(--hairline); }
+.options summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 56px; padding: 12px 0;
+  font: 700 16px/22px "Bricolage Grotesque", sans-serif;
 }
-.feature h3 { margin: 0 0 6px; font-size: 1.08rem; }
-.feature p { margin: 0; color: var(--muted); font-size: 0.98rem; }
-.feature .jp { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; color: var(--kaki); }
+.options summary::-webkit-details-marker { display: none; }
+.options summary svg { flex: 0 0 24px; color: var(--ink2); transition: transform 200ms ease; }
+.options details[open] summary svg { transform: rotate(180deg); }
+.options details p { margin: 0 0 16px; color: var(--ink2); font-size: 14px; line-height: 20px; }
+@media (prefers-reduced-motion: reduce) { .options summary svg { transition: none; } }
 
-.tiers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+/* Closing call to action */
+.cta { text-align: center; }
+.cta p { color: var(--ink2); margin: 8px 0 16px; }
+
+footer {
+  margin-top: var(--section); padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink3); font-size: 12.5px; line-height: 17px;
 }
-.tier { border-radius: 18px; padding: 20px 22px; border: 1px solid var(--line); background: var(--card); }
-.tier.full { border: 2px solid var(--ai); }
-.tier h3 { margin: 0 0 4px; }
-.tier .note { color: var(--muted); font-size: 0.92rem; margin: 0 0 8px; }
-.tier ul { margin: 0; padding-left: 20px; }
+footer p { margin: 0 0 8px; }
 
-details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 18px; margin: 10px 0; }
-summary { cursor: pointer; font-weight: 600; }
-details p { margin: 10px 0 2px; color: var(--muted); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--ai); outline-offset: 3px; border-radius: 8px; }
 
-.cta { text-align: center; margin: 48px 0 0; }
-.cta .badge img { margin: 8px auto 0; }
-
-footer .credits { font-size: 0.82rem; }
-
-@media (min-width: 820px) {
-  .hero { grid-template-columns: 1.15fr 0.85fr; }
-  .hero .phone { justify-self: center; }
+@media (min-width: 720px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .tiers { grid-template-columns: repeat(2, 1fr); }
 }
-.hero .phone img {
-  width: 260px;
-  max-width: 70vw;
-  height: auto;
-  border-radius: 26px;
-  border: 1px solid var(--line);
-  box-shadow: 0 18px 44px rgba(20, 24, 60, 0.2);
-  display: block;
+@media (min-width: 900px) {
+  h1 { font-size: 56px; line-height: 58px; }
+  .hero { grid-template-columns: 1.2fr 0.8fr; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .shots { margin: 0; padding-inline: 0; }
+  .shots figure { width: calc((100% - 48px) / 4); }
 }
-@media (max-width: 819px) { .hero .phone { display: none; } }
+@media (max-width: 899px) { .phone { display: none; } }
