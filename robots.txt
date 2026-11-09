@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zyncrologic-apps.github.io/sitemap.xml
